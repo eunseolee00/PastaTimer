@@ -3,7 +3,6 @@ package com.example.pastatimer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
-import android.os.Handler
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
@@ -21,6 +20,7 @@ class MainActivity : AppCompatActivity() {
 
     var howLong = 0
     var counterActive = false
+    var addSec = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,44 +35,59 @@ class MainActivity : AppCompatActivity() {
         addSeconds = findViewById(R.id.add30Sec)
         startButton = findViewById(R.id.startButton)
 
-        fun updateTimer(secondsLeft : Int) {
-            val minutes = secondsLeft / 60
-            val seconds = secondsLeft - minutes * 60
-            var secondStr = seconds.toString()
+        addSeconds.setOnClickListener() {
 
-            if (seconds <= 9) {
-                secondStr = "0$secondStr"
+            fun onClick(view: View?) {
+                addSec = true
+                countDownTimer.start()
+            }//onClick
+
+        }//addSeconds.setOnClickListener
+    }//onCreate
+
+    fun updateTimer(secondsLeft : Int) {
+        val minutes = secondsLeft / 60
+        val seconds = secondsLeft - minutes * 60
+        var secondStr = seconds.toString()
+
+        if (seconds <= 9) {
+            secondStr = "0$secondStr"
+        }
+        textView.text =  minutes.toString() + ":" + secondStr
+    }//updateTimer
+
+    fun startTimer(view : View) {
+        if (!counterActive) {
+            counterActive = true
+            startButton.text = "Stop"
+
+            if (addSec) {
+                howLong += 30000
             }
 
-            textView.text =  minutes.toString()+":" + secondStr
-        }//updateTimer
+            countDownTimer = object : CountDownTimer(howLong.toLong(), 1000) {
 
-        fun startTimer(view : View) {
+                override fun onTick(p0: Long) {
 
-            if (!counterActive) {
-                counterActive = true
-                startButton.text = "Stop"
-
-                countDownTimer = object : CountDownTimer(10000, 1000) {
-
-                    override fun onTick(p0: Long) {
+                    if (addSec) {
+                        updateTimer((p0 + 30000 / 1000).toInt())
+                    }
+                    else {
                         updateTimer((p0 / 1000).toInt())
                     }
+                }
+                override fun onFinish() {
+                    //TODO("Not yet implemented")
+                }
+            }//CountDownTimer
+            countDownTimer.start()
+        }
+        else {
+            countDownTimer.cancel()
+            counterActive = false
+            startButton.text = "Start"
+        }
 
-                    override fun onFinish() {
-                        //TODO("Not yet implemented")
-                    }
-                }//CountDownTimer
-                countDownTimer.start()
-            }//startTimer
-            else {
-                countDownTimer.cancel()
-                counterActive = false
-                startButton.text = "Start"
-            }
+    }//startTimer
 
-        }//startTimer
-
-
-    }//onCreate
 }//MainActivity
