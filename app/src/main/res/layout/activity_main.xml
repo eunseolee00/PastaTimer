@@ -4,85 +4,115 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F4F1DE"
     tools:context=".MainActivity"
     tools:layout_editor_absoluteX="122dp"
     tools:layout_editor_absoluteY="-1dp">
 
-    <Button
-        android:id="@+id/button12"
-        android:layout_width="176dp"
-        android:layout_height="138dp"
-        android:text="Rotini"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button11"
-        tools:layout_editor_absoluteY="194dp" />
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/spaghetti"
         android:layout_width="176dp"
         android:layout_height="138dp"
-        android:text="Penne"
-        app:layout_constraintEnd_toStartOf="@+id/button10"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="45dp" />
-
-    <Button
-        android:id="@+id/button10"
-        android:layout_width="176dp"
-        android:layout_height="138dp"
+        android:layout_marginTop="33dp"
+        android:backgroundTint="#81B29A"
+        android:fontFamily="@font/days_one"
         android:text="Spaghetti"
+        android:textSize="19sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button8"
-        tools:layout_editor_absoluteY="45dp" />
+        app:layout_constraintStart_toEndOf="@+id/penne"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button11"
+        android:id="@+id/penne"
         android:layout_width="176dp"
         android:layout_height="138dp"
-        android:text="Soba"
-        app:layout_constraintEnd_toStartOf="@+id/button12"
+        android:layout_marginTop="33dp"
+        android:backgroundTint="#E07A5F"
+        android:fontFamily="@font/days_one"
+        android:text="Penne"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/spaghetti"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="194dp" />
-
-    <EditText
-        android:id="@+id/editTextTextPersonName"
-        android:layout_width="291dp"
-        android:layout_height="112dp"
-        android:layout_marginBottom="112dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        android:textAlignment="center"
-        android:textSize="80sp"
-        app:layout_constraintBottom_toTopOf="@+id/button14"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button13"
-        android:layout_width="123dp"
-        android:layout_height="67dp"
+        android:id="@+id/rotini"
+        android:layout_width="176dp"
+        android:layout_height="138dp"
+        android:layout_marginTop="15dp"
+        android:backgroundTint="#E07A5F"
+        android:fontFamily="@font/days_one"
+        android:text="Rotini"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/soba"
+        app:layout_constraintTop_toBottomOf="@+id/spaghetti" />
+
+    <Button
+        android:id="@+id/soba"
+        android:layout_width="176dp"
+        android:layout_height="138dp"
+        android:layout_marginTop="15dp"
+        android:backgroundTint="#81B29A"
+        android:fontFamily="@font/days_one"
+        android:text="Soba"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/rotini"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/penne" />
+
+    <Button
+        android:id="@+id/startButton"
+        android:layout_width="156dp"
+        android:layout_height="65dp"
         android:layout_marginTop="22dp"
         android:layout_marginBottom="50dp"
+        android:backgroundTint="#E07A5F"
+        android:fontFamily="@font/days_one"
         android:text="Start"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button14"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/add30Sec"
+        app:layout_constraintVertical_bias="0.62" />
 
     <Button
-        android:id="@+id/button14"
-        android:layout_width="123dp"
+        android:id="@+id/add30Sec"
+        android:layout_width="158dp"
         android:layout_height="67dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="26dp"
+        android:backgroundTint="#3D405B"
+        android:fontFamily="@font/days_one"
         android:text="Add 30 Seconds"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="266dp"
+        android:layout_height="117dp"
+        android:layout_marginTop="31dp"
+        android:fontFamily="@font/days_one"
+        android:text="0:00"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="#3D405B"
+        android:textSize="96sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rotini" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
