@@ -45,6 +45,15 @@ class MainActivity : AppCompatActivity() {
         }//addSeconds.setOnClickListener
     }//onCreate
 
+    fun setCookingTime( view: View){
+       when(view.id){
+           R.id.spaghetti -> updateTimer( 570)
+           R.id.penne -> updateTimer( 660)
+           R.id.soba -> updateTimer(420)
+           R.id.rotini -> updateTimer(540)
+       }//when
+    }//setCookingTime
+
     fun updateTimer(secondsLeft : Int) {
         val minutes = secondsLeft / 60
         val seconds = secondsLeft - minutes * 60
