@@ -47,10 +47,19 @@ class MainActivity : AppCompatActivity() {
 
     fun setCookingTime( view: View){
        when(view.id){
-           R.id.spaghetti -> updateTimer(570)
-           R.id.penne -> updateTimer(660)
-           R.id.soba -> updateTimer(420)
-           R.id.rotini -> updateTimer(540)
+           R.id.spaghetti -> {
+               updateTimer(570)
+               howLong = 570000}
+           R.id.penne -> {
+               updateTimer(660)
+               howLong = 660000}
+           R.id.soba -> {
+               updateTimer(420)
+               howLong = 420000}
+           R.id.rotini -> {
+               updateTimer(540)
+               howLong = 540000
+           }
        }//when
     }//setCookingTime
 
