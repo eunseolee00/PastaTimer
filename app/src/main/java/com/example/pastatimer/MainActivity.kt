@@ -35,6 +35,7 @@ class MainActivity : AppCompatActivity() {
         addSeconds = findViewById(R.id.add30Sec)
         startButton = findViewById(R.id.startButton)
 
+        /*
         addSeconds.setOnClickListener() {
 
             fun onClick(view: View?) {
@@ -43,9 +44,18 @@ class MainActivity : AppCompatActivity() {
             }//onClick
 
         }//addSeconds.setOnClickListener
+
+         */
     }//onCreate
 
+
+
     fun setCookingTime( view: View){
+        if(counterActive){
+            countDownTimer.cancel()
+            counterActive = false
+            startButton.text = "Start"
+        }
        when(view.id){
            R.id.spaghetti -> {
                updateTimer(570)
@@ -63,6 +73,7 @@ class MainActivity : AppCompatActivity() {
        }//when
     }//setCookingTime
 
+
     fun updateTimer(secondsLeft : Int) {
         val minutes = secondsLeft / 60
         val seconds = secondsLeft - minutes * 60
@@ -75,24 +86,59 @@ class MainActivity : AppCompatActivity() {
     }//updateTimer
 
     fun startTimer(view : View) {
+
+        if (view.id == R.id.add30Sec) {
+            if(counterActive){
+                countDownTimer.cancel()
+                counterActive = false
+            }
+
+            howLong += 30000
+            updateTimer(howLong/1000)
+
+            countDownTimer = object : CountDownTimer(howLong.toLong(), 1000){
+                override fun onTick(p0: Long) {
+                    updateTimer((p0 / 1000).toInt())
+                }//onTick
+
+                override fun onFinish() {
+                    //TODO("Not yet implemented")
+                }//onFinish
+            }//countDownTimer
+
+            countDownTimer.start()
+            counterActive = true
+        }
+
         if (!counterActive) {
             counterActive = true
             startButton.text = "Stop"
 
-            if (addSec) {
+
+            /*
+            if (view.id == R.id.add30Sec) {
                 howLong += 30000
             }
+
+             */
+
 
             countDownTimer = object : CountDownTimer(howLong.toLong(), 1000) {
 
                 override fun onTick(p0: Long) {
 
-                    if (addSec) {
+                    /*
+                    if (view.id == R.id.add30Sec) {
                         updateTimer((p0 + 30000 / 1000).toInt())
                     }
                     else {
+
+                     */
+
                         updateTimer((p0 / 1000).toInt())
-                    }
+                    //}
+
+                    howLong -= 1000
                 }
                 override fun onFinish() {
                     //TODO("Not yet implemented")
