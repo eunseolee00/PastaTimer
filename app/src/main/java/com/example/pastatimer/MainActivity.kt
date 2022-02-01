@@ -64,8 +64,8 @@ class MainActivity : AppCompatActivity() {
     }//setCookingTime
 
     fun updateTimer(secondsLeft : Int) {
-        var minutes = secondsLeft / 60
-        var seconds = secondsLeft - (minutes * 60)
+        val minutes = secondsLeft / 60
+        val seconds = secondsLeft - (minutes * 60)
         var secondStr = seconds.toString()
 
        if (seconds <= 9) {
