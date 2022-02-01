@@ -3,6 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Academics/COSC253/HW2/PastaTimer/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2078125" />
+        <entry key="..\:/Academics/COSC253/HW2/PastaTimer/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2078125" />
+        <entry key="..\:/Academics/COSC253/HW2/PastaTimer/app/src/main/res/font/chonburi.xml" value="0.221875" />
+        <entry key="..\:/Academics/COSC253/HW2/PastaTimer/app/src/main/res/font/days_one.xml" value="0.221875" />
+        <entry key="..\:/Academics/COSC253/HW2/PastaTimer/app/src/main/res/layout/activity_main.xml" value="0.22282608695652173" />
         <entry key="app/src/main/res/drawable/roundbuttons.xml" value="0.2630208333333333" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.335" />
       </map>
