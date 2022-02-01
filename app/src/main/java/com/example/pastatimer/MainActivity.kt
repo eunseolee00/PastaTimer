@@ -6,6 +6,7 @@ import android.os.CountDownTimer
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import java.text.NumberFormat as NumberFormat
 
 class MainActivity : AppCompatActivity() {
 
@@ -35,17 +36,6 @@ class MainActivity : AppCompatActivity() {
         addSeconds = findViewById(R.id.add30Sec)
         startButton = findViewById(R.id.startButton)
 
-        /*
-        addSeconds.setOnClickListener() {
-
-            fun onClick(view: View?) {
-                addSec = true
-                countDownTimer.start()
-            }//onClick
-
-        }//addSeconds.setOnClickListener
-
-         */
     }//onCreate
 
 
@@ -73,13 +63,12 @@ class MainActivity : AppCompatActivity() {
        }//when
     }//setCookingTime
 
-
     fun updateTimer(secondsLeft : Int) {
-        val minutes = secondsLeft / 60
-        val seconds = secondsLeft - minutes * 60
+        var minutes = secondsLeft / 60
+        var seconds = secondsLeft - (minutes * 60)
         var secondStr = seconds.toString()
 
-        if (seconds <= 9) {
+       if (seconds <= 9) {
             secondStr = "0$secondStr"
         }
         textView.text =  minutes.toString() + ":" + secondStr
@@ -114,35 +103,15 @@ class MainActivity : AppCompatActivity() {
             counterActive = true
             startButton.text = "Stop"
 
-
-            /*
-            if (view.id == R.id.add30Sec) {
-                howLong += 30000
-            }
-
-             */
-
-
             countDownTimer = object : CountDownTimer(howLong.toLong(), 1000) {
 
                 override fun onTick(p0: Long) {
-
-                    /*
-                    if (view.id == R.id.add30Sec) {
-                        updateTimer((p0 + 30000 / 1000).toInt())
-                    }
-                    else {
-
-                     */
-
-                        updateTimer((p0 / 1000).toInt())
-                    //}
-
+                    updateTimer((p0 / 1000).toInt())
                     howLong -= 1000
-                }
+                }//onTick
                 override fun onFinish() {
                     //TODO("Not yet implemented")
-                }
+                }//onFinish
             }//CountDownTimer
             countDownTimer.start()
         }
